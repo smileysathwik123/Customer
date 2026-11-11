@@ -7,7 +7,10 @@ const initSqlJs = require('sql.js');
 const fs = require('fs');
 const path = require('path');
 
-const DB_PATH = path.join(__dirname, 'orders.sqlite');
+const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'orders.sqlite');
+
+// Ensure the directory exists (important when using Railway volume mounts)
+fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
 
 let _db = null;
 
