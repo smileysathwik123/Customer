@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Place Your Order — My Shop</title>
+  <meta name="description" content="Place a custom order for frames, bags, candles, key chains and bookmarks." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet" />
+</head>
+<body class="form-page">
+
+  <!-- Skip link -->
+  <a href="#orderForm" class="sr-only" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem 1rem;background:var(--p);color:#fff;border-radius:0 0 var(--r-sm) 0;font-weight:700" onfocus="this.style.position='fixed'" onblur="this.style.position='absolute'">Skip to form</a>
+
+  <!-- ── Header ── -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="My Shop home">
+        <div class="brand-logo" aria-hidden="true">🛍️</div>
+        <span class="brand-name">My Shop</span>
+      </a>
+      <a href="admin.html" class="nav-link" aria-label="Open admin dashboard">
+        <span aria-hidden="true">⚙️</span> Admin Dashboard
+      </a>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="form-hero" aria-label="Order form introduction">
+    <span class="hero-eyebrow" aria-hidden="true">✦ Handcrafted Goods</span>
+    <h1>Place Your Order</h1>
+    <p>Tell us what you need. We'll craft it and get back to you.</p>
+  </section>
+
+  <!-- ── Main Form ── -->
+  <main class="form-main" id="main">
+    <form id="orderForm" novalidate aria-label="Customer order form">
+
+      <!-- ① Customer Details -->
+      <div class="form-card" role="group" aria-labelledby="card-customer-title">
+        <div class="form-card-header">
+          <div class="card-icon-wrap" aria-hidden="true">👤</div>
+          <h2 id="card-customer-title">Your Details</h2>
+        </div>
+
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="customer_name">
+              Full Name <span class="required" aria-label="required">*</span>
+            </label>
+            <input
+              type="text" id="customer_name" name="customer_name"
+              placeholder="Priya Sharma"
+              maxlength="100" autocomplete="name" required
+              aria-required="true" aria-describedby="err-customer_name"
+            />
+            <span class="field-error" id="err-customer_name" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="phone_number">
+              Phone Number <span class="required" aria-label="required">*</span>
+            </label>
+            <input
+              type="tel" id="phone_number" name="phone_number"
+              placeholder="10-digit mobile number"
+              maxlength="10" inputmode="numeric" autocomplete="tel" required
+              aria-required="true" aria-describedby="err-phone_number"
+            />
+            <span class="field-error" id="err-phone_number" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="field-group field-group--full">
+            <label for="email">
+              Email Address <span class="optional">(optional)</span>
+            </label>
+            <input
+              type="email" id="email" name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              aria-describedby="err-email"
+            />
+            <span class="field-error" id="err-email" role="alert" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ② Products -->
+      <div class="form-card" role="group" aria-labelledby="card-products-title">
+        <div class="form-card-header">
+          <div class="card-icon-wrap" aria-hidden="true">🛒</div>
+          <h2 id="card-products-title">Choose Products</h2>
+        </div>
+        <p class="card-subtitle">Tap + or − to set how many you'd like. Leave at 0 to skip.</p>
+
+        <div class="products-grid" role="list">
+
+          <div class="product-card" role="listitem">
+            <div class="product-emoji-wrap" aria-hidden="true">🖼️</div>
+            <div class="product-info">
+              <span class="product-name">Frames</span>
+              <span class="product-price" id="price-frames">₹150 each</span>
+            </div>
+            <div class="qty-control" role="group" aria-label="Frames quantity">
+              <button type="button" class="qty-btn qty-dec" data-target="qty_frames" aria-label="Remove one frame">−</button>
+              <input type="number" class="qty-input" id="qty_frames" name="qty_frames"
+                     value="0" min="0" max="999" aria-label="Frames quantity" />
+              <button type="button" class="qty-btn qty-inc" data-target="qty_frames" aria-label="Add one frame">+</button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem">
+            <div class="product-emoji-wrap" aria-hidden="true">👜</div>
+            <div class="product-info">
+              <span class="product-name">Bags</span>
+              <span class="product-price" id="price-bags">₹200 each</span>
+            </div>
+            <div class="qty-control" role="group" aria-label="Bags quantity">
+              <button type="button" class="qty-btn qty-dec" data-target="qty_bags" aria-label="Remove one bag">−</button>
+              <input type="number" class="qty-input" id="qty_bags" name="qty_bags"
+                     value="0" min="0" max="999" aria-label="Bags quantity" />
+              <button type="button" class="qty-btn qty-inc" data-target="qty_bags" aria-label="Add one bag">+</button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem">
+            <div class="product-emoji-wrap" aria-hidden="true">🕯️</div>
+            <div class="product-info">
+              <span class="product-name">Candles</span>
+              <span class="product-price" id="price-candles">₹120 each</span>
+            </div>
+            <div class="qty-control" role="group" aria-label="Candles quantity">
+              <button type="button" class="qty-btn qty-dec" data-target="qty_candles" aria-label="Remove one candle">−</button>
+              <input type="number" class="qty-input" id="qty_candles" name="qty_candles"
+                     value="0" min="0" max="999" aria-label="Candles quantity" />
+              <button type="button" class="qty-btn qty-inc" data-target="qty_candles" aria-label="Add one candle">+</button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem">
+            <div class="product-emoji-wrap" aria-hidden="true">🔑</div>
+            <div class="product-info">
+              <span class="product-name">Key Chains</span>
+              <span class="product-price" id="price-keychains">₹80 each</span>
+            </div>
+            <div class="qty-control" role="group" aria-label="Key chains quantity">
+              <button type="button" class="qty-btn qty-dec" data-target="qty_keychains" aria-label="Remove one key chain">−</button>
+              <input type="number" class="qty-input" id="qty_keychains" name="qty_keychains"
+                     value="0" min="0" max="999" aria-label="Key chains quantity" />
+              <button type="button" class="qty-btn qty-inc" data-target="qty_keychains" aria-label="Add one key chain">+</button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem">
+            <div class="product-emoji-wrap" aria-hidden="true">📖</div>
+            <div class="product-info">
+              <span class="product-name">Bookmarks</span>
+              <span class="product-price" id="price-bookmarks">₹50 each</span>
+            </div>
+            <div class="qty-control" role="group" aria-label="Bookmarks quantity">
+              <button type="button" class="qty-btn qty-dec" data-target="qty_bookmarks" aria-label="Remove one bookmark">−</button>
+              <input type="number" class="qty-input" id="qty_bookmarks" name="qty_bookmarks"
+                     value="0" min="0" max="999" aria-label="Bookmarks quantity" />
+              <button type="button" class="qty-btn qty-inc" data-target="qty_bookmarks" aria-label="Add one bookmark">+</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live summary -->
+        <div class="order-summary" aria-live="polite" aria-label="Order summary">
+          <div class="summary-row">
+            <span>Total Items</span>
+            <strong id="display-total-qty">0</strong>
+          </div>
+          <div class="summary-row summary-row--total">
+            <span>Total Amount</span>
+            <strong id="display-total-amount">₹0</strong>
+          </div>
+        </div>
+
+        <span class="field-error" id="err-items" role="alert" aria-live="polite" style="display:block;margin-top:.6rem"></span>
+      </div>
+
+      <!-- ③ Notes -->
+      <div class="form-card" role="group" aria-labelledby="card-notes-title">
+        <div class="form-card-header">
+          <div class="card-icon-wrap" aria-hidden="true">📝</div>
+          <h2 id="card-notes-title">Special Instructions</h2>
+          <span class="optional-badge">Optional</span>
+        </div>
+        <div class="field-group field-group--full">
+          <label for="notes" class="sr-only">Special instructions or notes</label>
+          <textarea
+            id="notes" name="notes"
+            rows="3" maxlength="500"
+            placeholder="Gift wrapping, specific colours, delivery notes…"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="form-actions">
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-text">Submit Order</span>
+          <span class="btn-icon" aria-hidden="true">→</span>
+          <span class="btn-spinner" aria-hidden="true" hidden></span>
+        </button>
+      </div>
+
+      <p class="form-note">
+        <span class="required" aria-hidden="true">*</span> Required fields.
+        Your information is stored securely and never shared.
+      </p>
+
+    </form>
+  </main>
+
+  <!-- ── Success Modal ── -->
+  <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true"
+       aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <div class="modal-success-icon" aria-hidden="true">
+        ✅
+        <div class="confetti-wrap" id="confettiWrap"></div>
+      </div>
+      <h2 id="modal-title">Order Placed!</h2>
+      <p>Your order has been saved. We'll be in touch soon.</p>
+      <div class="modal-details" id="modalDetails" aria-label="Order summary"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn-primary" id="newOrderBtn">New Order</button>
+        <a href="admin.html" class="btn-secondary">View All Orders</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
